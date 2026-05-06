@@ -37,6 +37,13 @@ const works = [
     href: "https://drive.google.com/file/d/1sAcsaakTY71o1J8m-9BNa5lIJsSqtHRK/view",
     tag: "Tribute",
   },
+  {
+    n: "06",
+    title: "Travels Video Edit",
+    desc: "Cinematic travel edit capturing landscapes, motion and atmosphere.",
+    href: "https://drive.google.com/file/d/1sH6FhyQCUTG6k1gff7bHJ0_q5d8O0u8u/view",
+    tag: "Travel",
+  },
 ];
 
 export function Portfolio() {
