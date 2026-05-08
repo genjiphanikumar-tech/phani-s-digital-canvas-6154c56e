@@ -101,20 +101,64 @@ const navItems = ["Story", "Work", "Skills", "Portfolio", "Hire"];
 const PrismaHero = () => {
   return (
     <section className="relative w-full h-screen min-h-[640px] overflow-hidden bg-[#0D0D1A] text-[#E1E0CC]">
-      {/* Background video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-60"
-        poster="https://images.unsplash.com/photo-1492551557933-34265f7af79e?auto=format&fit=crop&w=1920&q=80"
+      {/* 3D animated background */}
+      <div
+        className="absolute inset-0"
+        style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
       >
-        <source
-          src="https://cdn.coverr.co/videos/coverr-a-stylish-woman-in-the-city-at-night-2633/1080p.mp4"
-          type="video/mp4"
+        {/* Rotating perspective grid */}
+        <motion.div
+          className="absolute left-1/2 top-1/2 h-[200%] w-[200%] -translate-x-1/2 -translate-y-1/2"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(201,168,76,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.18) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+            transform: "rotateX(65deg)",
+            transformOrigin: "center",
+            maskImage:
+              "radial-gradient(ellipse at center, black 30%, transparent 70%)",
+          }}
+          animate={{ backgroundPositionY: ["0px", "60px"] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
         />
-      </video>
+
+        {/* Floating 3D orbs */}
+        <motion.div
+          className="absolute left-[15%] top-[25%] h-72 w-72 rounded-full bg-[#C9A84C]/20 blur-3xl"
+          animate={{ x: [0, 40, 0], y: [0, -30, 0], scale: [1, 1.15, 1] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute right-[10%] top-[20%] h-80 w-80 rounded-full bg-indigo-500/15 blur-3xl"
+          animate={{ x: [0, -50, 0], y: [0, 40, 0], scale: [1, 0.85, 1] }}
+          transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute left-[40%] bottom-[10%] h-96 w-96 rounded-full bg-fuchsia-500/10 blur-3xl"
+          animate={{ x: [0, 60, 0], y: [0, -20, 0], scale: [1, 1.2, 1] }}
+          transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* Rotating 3D rings */}
+        <motion.div
+          className="absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#C9A84C]/25"
+          style={{ transformStyle: "preserve-3d" }}
+          animate={{ rotateX: [60, 60], rotateY: [0, 360] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute left-1/2 top-1/2 h-[680px] w-[680px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#C9A84C]/15"
+          style={{ transformStyle: "preserve-3d" }}
+          animate={{ rotateX: [70, 70], rotateY: [360, 0] }}
+          transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute left-1/2 top-1/2 h-[860px] w-[860px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#C9A84C]/10"
+          style={{ transformStyle: "preserve-3d" }}
+          animate={{ rotateX: [55, 55], rotateY: [0, 360] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        />
+      </div>
 
       {/* Noise overlay */}
       <div
